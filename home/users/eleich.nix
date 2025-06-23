@@ -3,6 +3,7 @@
 {
   imports = [
     ../modules/git.nix
+    ../modules/neovim.nix
   ];
 
   home.username = "eleich";
