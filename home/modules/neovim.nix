@@ -6,7 +6,7 @@
     viAlias = true;
     vimAlias = true;
 
-    # Enable treesitter, lsp, etc. (via Neovim extras)
+    # Enable treesitter, LSP, etc.
     extraPackages = with pkgs; [
       tree-sitter
       nodejs
@@ -16,14 +16,22 @@
     ];
 
     plugins = with pkgs.vimPlugins; [
-      # Example plugins
+      # Base + appearance
       vim-nix
       nvim-treesitter.withAllGrammars
-      telescope-nvim
-      plenary-nvim
-      nvim-lspconfig
       gruvbox-nvim
       lualine-nvim
+
+      # Telescope
+      telescope-nvim
+      plenary-nvim
+
+      # LSP
+      nvim-lspconfig
+
+      # File tree
+      nvim-tree-lua
+      nvim-web-devicons
     ];
 
     extraConfig = ''
@@ -39,16 +47,47 @@
       " Telescope keybind
       nnoremap <leader>f <cmd>Telescope find_files<cr>
 
-      " Gruvbox theme
+      " NvimTree toggle
+      nnoremap <leader>t :NvimTreeToggle<CR>
+
+      " Colorscheme
       colorscheme gruvbox
 
-      " Lualine config
       lua << EOF
         require('lualine').setup()
+
         require('lspconfig').lua_ls.setup({})
+
+        require('nvim-tree').setup({
+          view = {
+            width = 30,
+            side = "left",
+            preserve_window_proportions = true,
+          },
+          renderer = {
+            icons = {
+              show = {
+                git = true,
+                folder = true,
+                file = true,
+                folder_arrow = true,
+              }
+            }
+          },
+          filters = {
+            dotfiles = false
+          },
+          actions = {
+            open_file = {
+              quit_on_open = true,  -- auto-close tree when opening file
+            }
+          },
+          git = {
+            enable = true
+          }
+        })
       EOF
     '';
   };
 }
-
 
