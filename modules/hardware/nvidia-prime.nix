@@ -1,12 +1,27 @@
-{ config, ... }: {
-  hardware.nvidia = {
-    open = true;
-    modesetting.enable = true;
-    powerManagement.enable = true;
-    prime = {
-      offload.enable = true;
-      amdgpuBusId = "PCI:5:0:0";
-      nvidiaBusId = "PCI:1:0:0";
+{ config, pkgs, lib, ... }:
+
+{
+  services.xserver.videoDrivers = [
+    "modesetting"  # for your AMD iGPU under Wayland, use "modesetting" driver here
+    "nvidia"
+  ];
+  
+  # Use Open source drivers (Recommended for nixos)
+  hardware.nvidia.open = true;
+
+  hardware.nvidia.prime = {
+    offload = {
+      enable = true;
+      enableOffloadCmd = true;  # enables the `prime-run` command
     };
+
+    # Your PCI Bus IDs from lspci:
+    amdgpuBusId = "PCI:5:0:0";   # your AMD GPU
+    nvidiaBusId = "PCI:1:0:0";   # your NVIDIA GPU
   };
+
+  environment.systemPackages = with pkgs; [
+    glxinfo
+  ];
 }
+

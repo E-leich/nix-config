@@ -5,7 +5,7 @@
     ../modules/git.nix
     ../modules/neovim.nix
     ../modules/alacritty.nix
-    #../modules/zsh.nix
+    ../modules/zsh.nix
   ];
 
   home.username = "eleich";

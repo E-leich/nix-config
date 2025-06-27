@@ -6,7 +6,7 @@
     variant = "";
   };
 
-  services.xserver.videoDrivers = [ "amdgpu" "nvidia" ];
+  services.xserver.videoDrivers = [ "amdgpu" ];
   services.xserver.deviceSection = ''
     Option "PrimaryGPU" "yes"
   '';

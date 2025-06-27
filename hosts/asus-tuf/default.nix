@@ -13,6 +13,7 @@
     ../../modules/system/desktop.nix
     ../../modules/system/flatpak.nix
     ../../modules/system/packages.nix
+    ../../modules/system/gaming.nix
     ./hardware-configuration.nix
   ];
 
