@@ -10,9 +10,11 @@
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
+
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, home-manager, nix-flatpak, ... } @inputs:
     let
       system = "x86_64-linux";
       username = "eleich";
@@ -33,6 +35,7 @@
           modules = [
             ./hosts/${hostname}/default.nix
             home-manager.nixosModules.home-manager
+            nix-flatpak.nixosModules.nix-flatpak
             {
               # Enable global pkgs for Home Manager and your user config
               home-manager.useGlobalPkgs = true;

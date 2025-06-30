@@ -23,6 +23,11 @@ in
         "[workspace 1 silent] ${browser}" # Start browser on workspace 1
       ];
 
+      monitor = [
+        "HDMI-A-1,2560x1440@144,0x0,1"
+        "eDP-2,1920x1080@144,320x1440,1"
+      ];
+
       # Input settings
       input = {
         kb_layout = "fi"; # Simplified keyboard layout
@@ -119,12 +124,6 @@ in
         "noanim,class:^(xwaylandvideobridge)$" # No animations for XWayland bridge
       ];
     };
-
-    # Monitor configuration (simplified to auto-detect preferred)
-    extraConfig = ''
-      monitor=HDMI-A-1,2560x1440@144,0x0,1
-      monitor=eDP-1,1920x1080@144,320x1440,1
-    '';
   };
 
   # Enable core programs

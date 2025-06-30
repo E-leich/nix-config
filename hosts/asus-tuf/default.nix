@@ -9,7 +9,7 @@
     ../../modules/system/console.nix
     ../../modules/system/networking.nix
     ../../modules/system/pipewire.nix
-    ../../modules/system/xserver.nix
+    #../../modules/system/xserver.nix
     ../../modules/system/desktop.nix
     ../../modules/system/flatpak.nix
     ../../modules/system/packages.nix

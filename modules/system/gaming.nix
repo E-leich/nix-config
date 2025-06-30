@@ -27,7 +27,6 @@
     # Helpers for running Windows games
     steam-run             # run commands in Steam runtime
     lutris                # game management
-    bottles
 
     # Optional: communication apps popular with gamers
     discord

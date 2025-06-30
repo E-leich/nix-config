@@ -4,6 +4,7 @@
   services.xserver.videoDrivers = [
     "modesetting"  # for your AMD iGPU under Wayland, use "modesetting" driver here
     "nvidia"
+    "amdgpu"
   ];
   
   # Use Open source drivers (Recommended for nixos)
@@ -22,6 +23,7 @@
 
   environment.systemPackages = with pkgs; [
     glxinfo
+    mesa
   ];
 }
 
