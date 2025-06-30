@@ -6,6 +6,7 @@
     ../modules/neovim.nix
     ../modules/alacritty.nix
     ../modules/zsh.nix
+    ../modules/hyprland.nix
   ];
 
   home.username = "eleich";

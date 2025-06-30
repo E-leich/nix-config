@@ -24,7 +24,6 @@
        enable = true;
        plugins = [
          "git"
-         "thefuck"
          "z"
        ];
        theme = "robbyrussell";

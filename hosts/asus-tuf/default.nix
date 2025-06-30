@@ -14,6 +14,7 @@
     ../../modules/system/flatpak.nix
     ../../modules/system/packages.nix
     ../../modules/system/gaming.nix
+    ../../modules/system/hyprland/hyprland.nix
     ./hardware-configuration.nix
   ];
 
